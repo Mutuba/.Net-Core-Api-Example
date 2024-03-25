@@ -14,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 var connectionString = builder.Configuration.GetConnectionString("DbConnection") ?? throw new InvalidOperationException("Could not find connection string 'DbConnection'.");
 
-builder.Services.AddDbContext<MyWorldDbContext>(options =>
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(connectionString, sqlOptions => sqlOptions.EnableRetryOnFailure());
 });

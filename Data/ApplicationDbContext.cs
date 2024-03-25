@@ -2,7 +2,7 @@ using Data.Entities;
 using Microsoft.EntityFrameworkCore;
 namespace Data;
  
-public class MyWorldDbContext(DbContextOptions<MyWorldDbContext> context) : DbContext(context)
+public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
 {
     public DbSet<Students> Students { get; set; }
 }

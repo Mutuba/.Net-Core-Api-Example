@@ -2,9 +2,9 @@ using Data;
 using Data.Entities;
 using Microsoft.EntityFrameworkCore;
 namespace Repositories;
-public class StudentRepository(MyWorldDbContext dbContext)
+public class StudentRepository(ApplicationDbContext dbContext)
 {
-    private readonly MyWorldDbContext _dbContext = dbContext;
+    private readonly ApplicationDbContext _dbContext = dbContext;
 
     public Task<List<Students>> GetAllAsync()
     {
