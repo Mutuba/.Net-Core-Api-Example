@@ -21,7 +21,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Register your services with the dependency injection container
 builder.Services.AddScoped<StudentService>();
-builder.Services.AddScoped<StudentRepository>();
+// builder.Services.AddScoped<StudentRepository>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 
 var app = builder.Build();
 

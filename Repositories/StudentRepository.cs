@@ -1,15 +1,22 @@
 using Data;
 using Data.Entities;
 using Microsoft.EntityFrameworkCore;
-namespace Repositories;
-public class StudentRepository(ApplicationDbContext dbContext)
-{
-    private readonly ApplicationDbContext _dbContext = dbContext;
+using Repositories;
 
-    public Task<List<Students>> GetAllAsync()
+public class StudentRepository : IStudentRepository
+{
+    private readonly ApplicationDbContext _dbContext;
+
+    public StudentRepository(ApplicationDbContext dbContext)
     {
-        return _dbContext.Students.ToListAsync();
+        _dbContext = dbContext;
     }
+
+public async Task<IEnumerable<Students>> GetAllAsync()
+{
+    List<Students> studentsList = await _dbContext.Students.ToListAsync();
+    return studentsList;
+}
 
     public Task<Students?> GetByIdAsync(int id)
     {

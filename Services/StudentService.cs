@@ -1,11 +1,12 @@
 using Data.Entities;
 using Repositories;
-namespace Services;
-public class StudentService(StudentRepository repository)
-{
-    private readonly StudentRepository _repository = repository;
 
-    public Task<List<Students>> GetAllAsync()
+namespace Services;
+public class StudentService(IStudentRepository repository)
+{
+    private readonly IStudentRepository _repository = repository;
+
+    public Task<IEnumerable<Students>> GetAllAsync()
     {
         return _repository.GetAllAsync();
     }
@@ -38,3 +39,4 @@ public class StudentService(StudentRepository repository)
         }
     }
 }
+
