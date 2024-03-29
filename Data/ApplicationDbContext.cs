@@ -8,4 +8,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 {
     // Entity class in code to be mapped to database table
     public DbSet<Student> Students { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
 }
