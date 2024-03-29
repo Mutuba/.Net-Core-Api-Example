@@ -6,6 +6,6 @@ namespace Data;
  
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityUserContext<IdentityUser>(options)
 {
-    // Entity class in code to be mapped to the database table
-    public DbSet<Students> Students { get; set; }
+    // Entity class in code to be mapped to database table
+    public DbSet<Student> Students { get; set; }
 }

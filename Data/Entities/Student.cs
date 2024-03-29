@@ -1,6 +1,6 @@
 namespace Data.Entities;
 
-public class Students
+public class Student
 {    
     public int Id { get; set; }
     public string? FirstName { get; set; }

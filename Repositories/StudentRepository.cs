@@ -12,28 +12,28 @@ public class StudentRepository : IStudentRepository
         _dbContext = dbContext;
     }
 
-public async Task<IEnumerable<Students>> GetAllAsync()
+public async Task<IEnumerable<Student>> GetAllAsync()
 {
-    List<Students> studentsList = await _dbContext.Students.ToListAsync();
+    List<Student> studentsList = await _dbContext.Students.ToListAsync();
     return studentsList;
 }
 
-    public Task<Students?> GetByIdAsync(int id)
+    public Task<Student?> GetByIdAsync(int id)
     {
         return _dbContext.Students.FindAsync(id).AsTask();
     }
 
-    public void Add(Students student)
+    public void Add(Student student)
     {
         _dbContext.Students.Add(student);
     }
 
-    public void Update(Students student)
+    public void Update(Student student)
     {
         _dbContext.Students.Update(student);
     }
 
-    public void Delete(Students student)
+    public void Delete(Student student)
     {
         _dbContext.Students.Remove(student);
     }

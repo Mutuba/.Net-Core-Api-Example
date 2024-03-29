@@ -6,24 +6,24 @@ public class StudentService(IStudentRepository repository)
 {
     private readonly IStudentRepository _repository = repository;
 
-    public Task<IEnumerable<Students>> GetAllAsync()
+    public Task<IEnumerable<Student>> GetAllAsync()
     {
         return _repository.GetAllAsync();
     }
 
-    public Task<Students?> GetByIdAsync(int id)
+    public Task<Student?> GetByIdAsync(int id)
     {
         return _repository.GetByIdAsync(id);
     }
 
-    public async Task<Students> AddAsync(Students student)
+    public async Task<Student> AddAsync(Student student)
     {
         _repository.Add(student);
         await _repository.SaveChangesAsync();
         return student;
     }
 
-    public async Task UpdateAsync(Students student)
+    public async Task UpdateAsync(Student student)
     {
         _repository.Update(student);
         await _repository.SaveChangesAsync();
